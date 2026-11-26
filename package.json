@@ -1,0 +1,12 @@
+{
+  "name": "sitab-unklab",
+  "version": "1.0.0",
+  "description": "SiTAB - Sistem Titip Antar Barang Kampus UNKLAB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test_logic.js"
+  },
+  "author": "Kelompok Miedal",
+  "license": "ISC"
+}
