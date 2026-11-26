@@ -744,7 +744,11 @@ const App = {
       this.showToast(`Status kurir Anda: ${newStat}`);
     };
 
-    // Render TAB 1: Assigned active tasks
+    // Simpan cache tasks & deposits untuk referensi modal & verifikasi
+    this.courierTasks = tasks || [];
+    this.courierDeposits = active_deposits || [];
+
+    // Render TAB 1: Assigned active tasks (Pesan Antar)
     const activeTasksContainer = document.getElementById('kurir-tasks-container');
     activeTasksContainer.innerHTML = '';
     const myActive = tasks.filter(t => t.status !== 'Terkirim');
@@ -755,15 +759,20 @@ const App = {
         card.style.marginBottom = '14px';
         card.innerHTML = `
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="font-size:16px; font-weight:800; color:var(--primary-navy);">${task.kode_resi}</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:16px; font-weight:800; color:var(--primary-navy);">${task.kode_resi}</span>
+              <span class="badge badge-info">Pesan Antar</span>
+            </div>
             <span class="badge badge-warning">${task.status}</span>
           </div>
           <div style="font-size:15px; font-weight:700; color:var(--text-main);">${task.deskripsi_barang}</div>
-          <div style="font-size:13px; color:var(--text-muted); margin:6px 0 12px;">
-            📍 Jemput: <strong>${task.lokasi_asal}</strong> &nbsp;|&nbsp; 🏁 Antar: <strong>${task.lokasi_tujuan}</strong><br>
-            👤 Pemesan: <strong>${task.nama_pemesan}</strong> (HP: ${task.no_hp_pemesan})
+          <div style="background:var(--background-alt); padding:10px 14px; border-radius:var(--radius-sm); margin:10px 0; font-size:13px; line-height:1.6;">
+            <div>📍 <strong>Rute:</strong> ${task.lokasi_asal} → ${task.lokasi_tujuan}</div>
+            <div>👤 <strong>Pengirim (Pemesan):</strong> ${task.nama_pemesan} ${task.no_hp_pemesan ? `(${task.no_hp_pemesan})` : ''}</div>
+            <div>🎯 <strong>Penerima:</strong> ${task.nama_penerima || 'Penerima'}</div>
+            <div style="color:var(--primary-teal-dark); font-weight:700;">💰 Honor Kurir: Rp${(task.honor_kurir || 4000).toLocaleString('id-ID')}</div>
           </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
             ${task.status === 'Menunggu' ? `
               <button class="btn-primary" onclick="App.updateCourierOrderStatus(${task.id_permintaan}, 'Dijemput')">
                 📦 Barang Sudah Dijemput
@@ -777,6 +786,7 @@ const App = {
                 ✓ Masukkan OTP Penerima & Selesaikan Serah-Terima (L-09)
               </button>
             `}
+            ${task.kode_otp ? `<span class="badge badge-info" style="font-family:monospace; font-size:12px;">OTP Demo: ${task.kode_otp}</span>` : ''}
           </div>
         `;
         activeTasksContainer.appendChild(card);
@@ -798,8 +808,9 @@ const App = {
             <span style="font-weight:800; color:var(--primary-navy);">${uOrder.kode_resi} · ${uOrder.deskripsi_barang}</span>
             <span class="badge badge-info">Siap Diambil</span>
           </div>
-          <div style="font-size:13px; color:var(--text-muted); margin-bottom:10px;">
-            Rute: ${uOrder.lokasi_asal} → ${uOrder.lokasi_tujuan} | Pemohon: ${uOrder.nama_pemesan}
+          <div style="background:var(--background-alt); padding:8px 12px; border-radius:var(--radius-sm); font-size:13px; line-height:1.5; margin-bottom:10px;">
+            <div>📍 <strong>Rute:</strong> ${uOrder.lokasi_asal} → ${uOrder.lokasi_tujuan}</div>
+            <div>👤 <strong>Pengirim:</strong> ${uOrder.nama_pemesan} &nbsp;|&nbsp; 🎯 <strong>Penerima:</strong> ${uOrder.nama_penerima || 'Penerima'}</div>
           </div>
           <button class="btn-primary" style="padding:8px 16px; font-size:12px;" onclick="App.claimCourierTask(${uOrder.id_permintaan})">
             ⚡ Ambil Tugas Pengantaran Ini (Langsung Kerja)
@@ -811,7 +822,7 @@ const App = {
       unassignedContainer.innerHTML = '<div style="text-align:center; color:var(--text-muted); padding:24px;">Tidak ada tugas baru yang menunggu saat ini.</div>';
     }
 
-    // Render TAB 3: Active deposits at 7 Pos
+    // Render TAB 3: Active deposits at 7 Pos (Titip Mandiri)
     const depositsContainer = document.getElementById('kurir-deposits-table-container');
     depositsContainer.innerHTML = '';
     if (active_deposits && active_deposits.length > 0) {
@@ -822,22 +833,34 @@ const App = {
               <th>RESI</th>
               <th>POS LOKER</th>
               <th>DESKRIPSI</th>
-              <th>PENITIP</th>
+              <th>PENGIRIM & PENERIMA</th>
+              <th>STATUS</th>
               <th>AKSI</th>
             </tr>
           </thead>
           <tbody>
       `;
       active_deposits.forEach(d => {
+        const safeResi = String(d.kode_resi || '');
+        const safeOtp = String(d.kode_otp || '');
+        const safePenitip = String(d.nama_penitip || '-').replace(/'/g, "\\'");
+        const safePenerima = String(d.nama_penerima || safePenitip).replace(/'/g, "\\'");
+        const safePos = String(d.pos_lokasi || '-').replace(/'/g, "\\'");
+        const safeDesc = String(d.deskripsi_barang || '-').replace(/'/g, "\\'");
+
         depHtml += `
           <tr>
-            <td style="font-weight:700;">${d.kode_resi}</td>
+            <td style="font-weight:700; color:var(--primary-navy);">${d.kode_resi}</td>
             <td><strong>${d.pos_lokasi}</strong></td>
             <td>${d.deskripsi_barang}</td>
-            <td>${d.nama_penitip}</td>
+            <td style="font-size:12px; line-height:1.4;">
+              👤 Penitip: <strong>${d.nama_penitip}</strong><br>
+              🎯 Penerima: <strong>${d.nama_penerima || d.nama_penitip}</strong>
+            </td>
+            <td><span class="badge badge-success">Tersimpan di Loker</span></td>
             <td>
-              <button class="btn-secondary" style="padding:4px 8px; font-size:11px;" onclick="document.getElementById('kurir-titip-resi').value='${d.kode_resi}'; document.getElementById('kurir-titip-otp').focus();">
-                Input OTP →
+              <button class="btn-primary" style="padding:6px 12px; font-size:11px;" onclick="App.openTitipMandiriVerification('${safeResi}', '${safeOtp}', '${safePenitip}', '${safePenerima}', '${safePos}', '${safeDesc}')">
+                🔑 Ambil Titipan →
               </button>
             </td>
           </tr>
@@ -887,6 +910,31 @@ const App = {
     }
   },
 
+  openTitipMandiriVerification(resi, otp, penitip, penerima, pos, desc) {
+    this.switchKurirTab('titip');
+    const resiInput = document.getElementById('kurir-titip-resi');
+    const otpInput = document.getElementById('kurir-titip-otp');
+    if (resiInput) resiInput.value = resi;
+    if (otpInput) {
+      otpInput.value = '';
+      otpInput.focus();
+    }
+
+    const hintContainer = document.getElementById('kurir-titip-hint');
+    if (hintContainer) {
+      hintContainer.innerHTML = `
+        <div style="background:var(--primary-teal-light); border:1px solid #a7f3d0; padding:12px 14px; border-radius:var(--radius-md); margin-bottom:14px; font-size:13px; line-height:1.5;">
+          <div style="font-weight:800; color:var(--primary-navy); margin-bottom:4px;">📦 Verifikasi Pengambilan: ${resi} · ${desc}</div>
+          <div>📍 <strong>Pos Loker:</strong> ${pos}</div>
+          <div>👤 <strong>Penitip (Pengirim):</strong> ${penitip} &nbsp;|&nbsp; 🎯 <strong>Penerima (Pengambil):</strong> ${penerima}</div>
+          ${otp ? `<div style="margin-top:6px; color:var(--primary-teal-dark); font-weight:700;">💡 Info Demo (Kode OTP dari Mahasiswa): <span style="font-family:monospace; font-size:16px; letter-spacing:2px; color:var(--primary-navy);">${otp}</span></div>` : ''}
+        </div>
+      `;
+    }
+
+    if (resiInput) resiInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  },
+
   async handleKurirVerifyTitipMandiri(e) {
     e.preventDefault();
     const resi = document.getElementById('kurir-titip-resi').value.trim();
@@ -903,10 +951,12 @@ const App = {
     });
 
     if (res.ok && res.data.success) {
-      this.showToast(res.data.message, 5000);
+      this.showToast(`✓ ${res.data.message}`, 5000);
       document.getElementById('kurir-titip-resi').value = '';
       document.getElementById('kurir-titip-otp').value = '';
-      this.loadCourierDashboard();
+      const hint = document.getElementById('kurir-titip-hint');
+      if (hint) hint.innerHTML = '';
+      await this.loadCourierDashboard();
     } else {
       this.showToast(res.data.message || 'Verifikasi OTP gagal.');
     }
@@ -924,7 +974,46 @@ const App = {
 
   openSerahTerimaScreen(orderId) {
     this.activeOrderId = orderId;
+    const task = (this.courierTasks || []).find(t => t.id_permintaan === orderId);
+
+    const infoEl = document.getElementById('st-order-info');
+    if (infoEl) {
+      if (task) {
+        infoEl.innerHTML = `
+          <div style="background:var(--background-alt); border:1px solid var(--border-color); padding:14px; border-radius:var(--radius-md); line-height:1.5;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-size:18px; font-weight:800; color:var(--primary-navy);">${task.kode_resi}</span>
+              <span class="badge badge-warning">${task.status}</span>
+            </div>
+            <div style="font-weight:700; color:var(--text-main); margin-bottom:6px;">${task.deskripsi_barang}</div>
+            <div style="font-size:13px; color:var(--text-muted); line-height:1.6;">
+              <div>📍 <strong>Rute:</strong> ${task.lokasi_asal} → ${task.lokasi_tujuan}</div>
+              <div>👤 <strong>Pengirim (Pemesan):</strong> ${task.nama_pemesan || '-'} ${task.no_hp_pemesan ? '(' + task.no_hp_pemesan + ')' : ''}</div>
+              <div>🎯 <strong>Penerima:</strong> ${task.nama_penerima || '-'}</div>
+            </div>
+            ${task.kode_otp ? `
+              <div style="margin-top:10px; padding:10px 14px; background:var(--primary-teal-light); border-radius:var(--radius-sm); font-size:13px; color:var(--primary-teal-dark); font-weight:700;">
+                💡 Info Demo (Kode OTP dari Penerima): <span style="font-size:18px; font-family:monospace; letter-spacing:3px; color:var(--primary-navy);">${task.kode_otp}</span>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      } else {
+        infoEl.innerHTML = `<div class="card" style="margin-bottom:12px;">Pesanan #${orderId}</div>`;
+      }
+    }
+
+    // Reset OTP input fields
+    ['otp-st-1', 'otp-st-2', 'otp-st-3', 'otp-st-4', 'otp-st-single'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+    const errEl = document.getElementById('st-error');
+    if (errEl) errEl.style.display = 'none';
+
     this.showScreen('L-09');
+    const firstDigit = document.getElementById('otp-st-1');
+    if (firstDigit) firstDigit.focus();
   },
 
   // -------------------------------------------------------------
@@ -932,11 +1021,18 @@ const App = {
   // -------------------------------------------------------------
   async handleConfirmSerahTerima(e) {
     e.preventDefault();
-    const d1 = document.getElementById('otp-st-1').value;
-    const d2 = document.getElementById('otp-st-2').value;
-    const d3 = document.getElementById('otp-st-3').value;
-    const d4 = document.getElementById('otp-st-4').value;
-    const otp = `${d1}${d2}${d3}${d4}`.trim();
+    const singleEl = document.getElementById('otp-st-single');
+    const d1 = document.getElementById('otp-st-1') ? document.getElementById('otp-st-1').value : '';
+    const d2 = document.getElementById('otp-st-2') ? document.getElementById('otp-st-2').value : '';
+    const d3 = document.getElementById('otp-st-3') ? document.getElementById('otp-st-3').value : '';
+    const d4 = document.getElementById('otp-st-4') ? document.getElementById('otp-st-4').value : '';
+
+    let otp = '';
+    if (singleEl && singleEl.value.trim().length === 4) {
+      otp = singleEl.value.trim();
+    } else {
+      otp = `${d1}${d2}${d3}${d4}`.trim();
+    }
 
     const foto = document.getElementById('st-foto-hidden').value || '/uploads/sample_delivered.jpg';
     const errEl = document.getElementById('st-error');
@@ -948,6 +1044,18 @@ const App = {
       return;
     }
 
+    if (!this.activeOrderId) {
+      // Fallback: look for the first non-completed courier task
+      const fallbackTask = (this.courierTasks || []).find(t => t.status !== 'Terkirim');
+      if (fallbackTask) {
+        this.activeOrderId = fallbackTask.id_permintaan;
+      } else {
+        errEl.textContent = 'ID pesanan aktif tidak ditemukan. Silakan pilih tugas kembali di Dashboard Kurir.';
+        errEl.style.display = 'block';
+        return;
+      }
+    }
+
     const res = await this.api(`/api/permintaan/${this.activeOrderId}/serah-terima`, 'POST', {
       kode_otp: otp,
       foto_bukti: foto,
@@ -955,7 +1063,8 @@ const App = {
     });
 
     if (res.ok && res.data.success) {
-      this.showToast('Serah-terima berhasil! Pesanan selesai dan honor kurir otomatis dicatat.');
+      this.showToast('✓ Serah-terima berhasil! Pesanan selesai dan honor kurir otomatis dicatat.', 5000);
+      await this.loadCourierDashboard();
       this.showScreen('L-08');
     } else {
       errEl.textContent = res.data.message || 'Kode OTP salah atau serah-terima gagal.';
@@ -1367,17 +1476,85 @@ const App = {
 
   // Setup Global Event Listeners & File Handlers
   setupEventListeners() {
-    document.querySelectorAll('.otp-digit').forEach(input => {
-      input.addEventListener('keyup', e => {
-        if (e.key === 'Backspace') {
-          const prev = input.previousElementSibling;
-          if (prev && prev.classList.contains('otp-digit')) prev.focus();
-        } else if (input.value.length >= 1) {
+    // Robust OTP digit handling (Auto advance, backspace, and paste support)
+    const otpBoxes = Array.from(document.querySelectorAll('.otp-digit'));
+    otpBoxes.forEach((input) => {
+      // Input event for robust character entry
+      input.addEventListener('input', () => {
+        const val = input.value.replace(/[^0-9]/g, '');
+        if (val.length > 1) {
+          // Multi-char input (pasted into individual box)
+          const digits = val.slice(0, 4);
+          const parent = input.closest('.otp-container');
+          if (parent) {
+            const siblings = Array.from(parent.querySelectorAll('.otp-digit'));
+            digits.split('').forEach((d, i) => {
+              if (siblings[i]) siblings[i].value = d;
+            });
+            const nextIdx = Math.min(digits.length, siblings.length - 1);
+            if (siblings[nextIdx]) siblings[nextIdx].focus();
+          }
+          return;
+        }
+        input.value = val;
+        if (val.length === 1) {
           const next = input.nextElementSibling;
           if (next && next.classList.contains('otp-digit')) next.focus();
         }
+
+        // Sync with single OTP input if in L-09
+        const single = document.getElementById('otp-st-single');
+        if (single && input.id && input.id.startsWith('otp-st-')) {
+          const d1 = document.getElementById('otp-st-1') ? document.getElementById('otp-st-1').value : '';
+          const d2 = document.getElementById('otp-st-2') ? document.getElementById('otp-st-2').value : '';
+          const d3 = document.getElementById('otp-st-3') ? document.getElementById('otp-st-3').value : '';
+          const d4 = document.getElementById('otp-st-4') ? document.getElementById('otp-st-4').value : '';
+          single.value = `${d1}${d2}${d3}${d4}`.trim();
+        }
+      });
+
+      // Keydown event for backspace
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Backspace' && !input.value) {
+          const prev = input.previousElementSibling;
+          if (prev && prev.classList.contains('otp-digit')) {
+            prev.focus();
+            prev.value = '';
+          }
+        }
+      });
+
+      // Paste event
+      input.addEventListener('paste', e => {
+        e.preventDefault();
+        const text = (e.clipboardData || window.clipboardData).getData('text');
+        const digits = text.replace(/[^0-9]/g, '').slice(0, 4);
+        const parent = input.closest('.otp-container');
+        if (parent) {
+          const siblings = Array.from(parent.querySelectorAll('.otp-digit'));
+          digits.split('').forEach((d, i) => {
+            if (siblings[i]) siblings[i].value = d;
+          });
+          const single = document.getElementById('otp-st-single');
+          if (single) single.value = digits;
+          const nextIdx = Math.min(digits.length, siblings.length - 1);
+          if (siblings[nextIdx]) siblings[nextIdx].focus();
+        }
       });
     });
+
+    // Sync from single OTP input to individual boxes in L-09
+    const singleOtp = document.getElementById('otp-st-single');
+    if (singleOtp) {
+      singleOtp.addEventListener('input', () => {
+        const digits = singleOtp.value.replace(/[^0-9]/g, '').slice(0, 4);
+        singleOtp.value = digits;
+        ['otp-st-1', 'otp-st-2', 'otp-st-3', 'otp-st-4'].forEach((id, idx) => {
+          const box = document.getElementById(id);
+          if (box) box.value = digits[idx] || '';
+        });
+      });
+    }
 
     document.querySelectorAll('.day-chip').forEach(chip => {
       chip.addEventListener('click', () => {

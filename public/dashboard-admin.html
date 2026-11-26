@@ -169,14 +169,6 @@
           <h1 id="mhs-user-name" class="page-title">Halo, Michelle Lumentut 👋</h1>
           <p class="page-subtitle">Mau titip barang di loker pos kampus atau pesan antar barang hari ini?</p>
         </div>
-        <div style="display: flex; gap: 10px;">
-          <button class="btn-primary" onclick="App.showScreen('L-03')">
-            📦 Titip Barang Mandiri
-          </button>
-          <button class="btn-success btn-primary" onclick="App.showScreen('L-04')">
-            ✈️ Pesan Antar Barang
-          </button>
-        </div>
       </div>
 
       <!-- Active Delivery Hero Card (if active order exists) -->
@@ -650,11 +642,13 @@
         <div class="grid-2">
           <div class="card">
             <h2 style="font-size: 18px; font-weight: 800; color: var(--primary-navy); margin-bottom: 6px;">
-              Verifikasi Pengambilan Titip Mandiri (Pos Loker)
+              Ambil Titipan Mandiri & Verifikasi OTP (Pos Loker)
             </h2>
-            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
-              Mahasiswa/penerima mengambil barang di loker pos dan memberikan kode OTP 4 digit ke kurir. Cukup masukkan nomor resi dan kode OTP untuk menyelesaikan.
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+              Mahasiswa/penerima mengambil barang di loker pos dan memberikan kode OTP 4 digit ke kurir. Cukup masukkan nomor resi dan kode OTP untuk menyelesaikan serah-terima tanpa persetujuan admin.
             </p>
+
+            <div id="kurir-titip-hint"></div>
 
             <form onsubmit="App.handleKurirVerifyTitipMandiri(event)" style="display: flex; flex-direction: column; gap: 14px;">
               <div class="form-group">
@@ -664,7 +658,7 @@
 
               <div class="form-group">
                 <label class="form-label">Kode OTP Pengambilan (4 Digit) *</label>
-                <input type="text" id="kurir-titip-otp" class="form-input" placeholder="Contoh: 5173" maxlength="4" required>
+                <input type="text" id="kurir-titip-otp" class="form-input" placeholder="Contoh: 5173" maxlength="4" style="font-size: 18px; font-weight: 800; letter-spacing: 3px; text-align: center;" required>
               </div>
 
               <div class="form-group">
@@ -673,16 +667,19 @@
               </div>
 
               <button type="submit" class="btn-primary" style="padding: 12px;">
-                ✓ Verifikasi Pengambilan Barang Selesai
+                ✓ Selesaikan Pengambilan & Bebaskan Loker
               </button>
             </form>
           </div>
 
           <!-- Active Deposits at Pos Table -->
           <div class="card">
-            <h2 style="font-size: 16px; font-weight: 800; color: var(--primary-navy); margin-bottom: 10px;">
-              Daftar Barang yang Sedang Tersimpan di Pos Loker:
+            <h2 style="font-size: 16px; font-weight: 800; color: var(--primary-navy); margin-bottom: 6px;">
+              Daftar Barang yang Tersimpan di 7 Pos Loker:
             </h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+              Klik tombol <strong>Ambil Titipan</strong> untuk memverifikasi OTP bersama mahasiswa:
+            </p>
             <div id="kurir-deposits-table-container"></div>
           </div>
         </div>
@@ -710,16 +707,22 @@
       </div>
 
       <div class="card" style="max-width: 600px; margin: 0 auto; width: 100%;">
+        <div id="st-order-info" style="margin-bottom: 16px;"></div>
+
         <form onsubmit="App.handleConfirmSerahTerima(event)" style="display: flex; flex-direction: column; gap: 18px;">
           <div style="text-align: center;">
             <label class="form-label" style="font-size: 14px; font-weight: 700;">Masukkan Kode OTP 4 Digit Penerima</label>
             <div class="otp-container">
-              <input type="text" id="otp-st-1" class="otp-digit" maxlength="1" required>
-              <input type="text" id="otp-st-2" class="otp-digit" maxlength="1" required>
-              <input type="text" id="otp-st-3" class="otp-digit" maxlength="1" required>
-              <input type="text" id="otp-st-4" class="otp-digit" maxlength="1" required>
+              <input type="text" id="otp-st-1" class="otp-digit" maxlength="1" inputmode="numeric">
+              <input type="text" id="otp-st-2" class="otp-digit" maxlength="1" inputmode="numeric">
+              <input type="text" id="otp-st-3" class="otp-digit" maxlength="1" inputmode="numeric">
+              <input type="text" id="otp-st-4" class="otp-digit" maxlength="1" inputmode="numeric">
             </div>
-            <div style="font-size: 12px; color: var(--text-muted);">OTP 4 digit diberikan langsung oleh mahasiswa penerima barang.</div>
+            <div style="margin-top: 8px;">
+              <span style="font-size: 12px; color: var(--text-muted);">Atau ketik langsung 4 digit di sini:</span><br>
+              <input type="text" id="otp-st-single" class="form-input" style="max-width: 180px; text-align: center; font-size: 18px; letter-spacing: 4px; font-weight: 800; margin: 6px auto 0;" maxlength="4" placeholder="4 Digit OTP">
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">OTP 4 digit diberikan langsung oleh mahasiswa penerima barang.</div>
           </div>
 
           <div class="form-group">

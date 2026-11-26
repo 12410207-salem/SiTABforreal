@@ -1112,8 +1112,9 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 400, { success: false, message: 'Kode OTP serah-terima wajib diisi.' });
       }
 
-      // Ambil record serah terima terkait
-      const st = db.data.serah_terima.find(s => s.id_permintaan === p.id_permintaan);
+      // Ambil record serah terima terkait (record terbaru)
+      const stList = db.data.serah_terima.filter(s => s.id_permintaan === p.id_permintaan);
+      const st = stList.length > 0 ? stList[stList.length - 1] : null;
       if (!st) {
         return sendJson(res, 400, { success: false, message: 'Data serah-terima tidak ditemukan.' });
       }
@@ -1127,8 +1128,8 @@ const server = http.createServer(async (req, res) => {
         });
       }
 
-      // Cek OTP
-      if (st.kode_otp !== String(kode_otp).trim()) {
+      // Cek OTP (perbandingan string bersih)
+      if (String(st.kode_otp).trim() !== String(kode_otp).trim()) {
         st.jumlah_percobaan_otp += 1;
         db.save();
         const sisa = 5 - st.jumlah_percobaan_otp;
@@ -1184,8 +1185,9 @@ const server = http.createServer(async (req, res) => {
       const body = await parseBody(req);
       const { kode_otp, foto_bukti } = body;
 
-      const st = db.data.serah_terima.find(s => s.id_permintaan === p.id_permintaan);
-      if (!st || st.kode_otp !== String(kode_otp).trim()) {
+      const stList = db.data.serah_terima.filter(s => s.id_permintaan === p.id_permintaan);
+      const st = stList.length > 0 ? stList[stList.length - 1] : null;
+      if (!st || String(st.kode_otp).trim() !== String(kode_otp).trim()) {
         return sendJson(res, 400, { success: false, message: 'Kode OTP pengambilan loker salah.' });
       }
 
@@ -1393,7 +1395,8 @@ const server = http.createServer(async (req, res) => {
         const tujuan = db.data.lokasi.find(l => l.id_lokasi === p.id_lokasi_tujuan);
         const pemesan = db.data.pengguna.find(u => u.id_pengguna === p.id_pemesan);
         const trx = db.data.transaksi.find(t => t.id_permintaan === p.id_permintaan);
-        const st = db.data.serah_terima.find(s => s.id_permintaan === p.id_permintaan);
+        const stList = db.data.serah_terima.filter(s => s.id_permintaan === p.id_permintaan);
+        const st = stList.length > 0 ? stList[stList.length - 1] : null;
 
         return {
           ...p,
@@ -1401,10 +1404,12 @@ const server = http.createServer(async (req, res) => {
           lokasi_tujuan: tujuan ? tujuan.nama_lokasi : '-',
           nama_pemesan: pemesan ? pemesan.nama : '-',
           no_hp_pemesan: pemesan ? pemesan.no_hp : '-',
+          nama_penerima: p.nama_penerima || 'Penerima',
           honor_kurir: trx ? trx.honor_kurir : 4000,
           metode_penugasan: pn.metode,
           waktu_ditugaskan: pn.waktu_ditugaskan,
-          foto_bukti: st ? st.foto_bukti : null
+          foto_bukti: st ? st.foto_bukti : null,
+          kode_otp: st ? String(st.kode_otp).trim() : null
         };
       }).filter(Boolean).sort((a, b) => new Date(b.waktu_dibuat) - new Date(a.waktu_dibuat));
 
@@ -1427,7 +1432,8 @@ const server = http.createServer(async (req, res) => {
             ...p,
             lokasi_asal: asal ? asal.nama_lokasi : '-',
             lokasi_tujuan: tujuan ? tujuan.nama_lokasi : '-',
-            nama_pemesan: pemesan ? pemesan.nama : '-'
+            nama_pemesan: pemesan ? pemesan.nama : '-',
+            nama_penerima: p.nama_penerima || 'Penerima'
           };
         });
 
@@ -1437,10 +1443,14 @@ const server = http.createServer(async (req, res) => {
         .map(p => {
           const loc = db.data.lokasi.find(l => l.id_lokasi === p.id_lokasi_asal);
           const pemesan = db.data.pengguna.find(u => u.id_pengguna === p.id_pemesan);
+          const stList = db.data.serah_terima.filter(s => s.id_permintaan === p.id_permintaan);
+          const st = stList.length > 0 ? stList[stList.length - 1] : null;
           return {
             ...p,
             pos_lokasi: loc ? loc.nama_lokasi : '-',
-            nama_penitip: pemesan ? pemesan.nama : '-'
+            nama_penitip: pemesan ? pemesan.nama : '-',
+            nama_penerima: p.nama_penerima || (pemesan ? pemesan.nama : 'Penerima'),
+            kode_otp: st ? String(st.kode_otp).trim() : null
           };
         });
 
@@ -1483,8 +1493,9 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 400, { success: false, message: `Barang titipan ${kode_resi} sudah selesai diambil sebelumnya.` });
       }
 
-      const st = db.data.serah_terima.find(s => s.id_permintaan === p.id_permintaan);
-      if (!st || st.kode_otp !== String(kode_otp).trim()) {
+      const stList = db.data.serah_terima.filter(s => s.id_permintaan === p.id_permintaan);
+      const st = stList.length > 0 ? stList[stList.length - 1] : null;
+      if (!st || String(st.kode_otp).trim() !== String(kode_otp).trim()) {
         if (st) st.jumlah_percobaan_otp = (st.jumlah_percobaan_otp || 0) + 1;
         db.save();
         return sendJson(res, 400, { success: false, message: 'Kode OTP pengambilan salah. Minta kode OTP yang valid dari penitip/penerima.' });

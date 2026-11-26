@@ -1,23 +1,23 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-11-25T22:46:23.666Z"
+    "last_updated": "2026-11-26T03:44:29.572Z"
   },
   "counters": {
     "pengguna": 6,
     "kurir": 2,
-    "jadwal_kurir": 13,
+    "jadwal_kurir": 9,
     "lokasi": 10,
-    "permintaan": 8,
-    "penugasan": 5,
-    "riwayat_status": 23,
-    "serah_terima": 8,
-    "transaksi": 8,
-    "laporan_kehilangan": 1,
-    "ulasan": 3,
-    "notifikasi": 32,
-    "verifikasi_email": 3,
-    "resi_seq": 257
+    "permintaan": 5,
+    "penugasan": 3,
+    "riwayat_status": 14,
+    "serah_terima": 5,
+    "transaksi": 5,
+    "laporan_kehilangan": 0,
+    "ulasan": 1,
+    "notifikasi": 13,
+    "verifikasi_email": 2,
+    "resi_seq": 254
   },
   "pengguna": [
     {
@@ -25,60 +25,60 @@
       "nama": "Salem, Jovitly Mike",
       "email_kampus": "admin@student.unklab.ac.id",
       "no_hp": "081234567890",
-      "password_hash": "b923111b9e730f3bf1557ec6163ac549:024085f5db46a4224645fca62aa1801447c2c2df2e8ff8aebc17e13b98c6df6c240558d5523a90d1ddd5e9db06877d4d9a91547df68bce8979c83cdd13f1c429",
+      "password_hash": "e233e385ca564ba548ea21de11f8c943:2ad2d9e38e9053294ad490fcf49eca00b07174d5c18583e51439d22f7834c7de79094a23a21b6121ee1e9a82843c6c4277e597b118470de870427aa21402b2dd",
       "peran": "administrator",
       "status_akun": "aktif",
-      "waktu_daftar": "2026-11-25T22:16:18.510Z"
+      "waktu_daftar": "2026-11-26T03:35:22.393Z"
     },
     {
       "id_pengguna": 2,
       "nama": "Michelle Lumentut",
       "email_kampus": "12410601@student.unklab.ac.id",
       "no_hp": "081234567891",
-      "password_hash": "b923111b9e730f3bf1557ec6163ac549:024085f5db46a4224645fca62aa1801447c2c2df2e8ff8aebc17e13b98c6df6c240558d5523a90d1ddd5e9db06877d4d9a91547df68bce8979c83cdd13f1c429",
+      "password_hash": "e233e385ca564ba548ea21de11f8c943:2ad2d9e38e9053294ad490fcf49eca00b07174d5c18583e51439d22f7834c7de79094a23a21b6121ee1e9a82843c6c4277e597b118470de870427aa21402b2dd",
       "peran": "mahasiswa",
       "status_akun": "aktif",
-      "waktu_daftar": "2026-11-25T22:16:18.510Z"
+      "waktu_daftar": "2026-11-26T03:35:22.393Z"
     },
     {
       "id_pengguna": 3,
       "nama": "Andrew Sahala",
       "email_kampus": "12410207@student.unklab.ac.id",
       "no_hp": "081234567892",
-      "password_hash": "b923111b9e730f3bf1557ec6163ac549:024085f5db46a4224645fca62aa1801447c2c2df2e8ff8aebc17e13b98c6df6c240558d5523a90d1ddd5e9db06877d4d9a91547df68bce8979c83cdd13f1c429",
+      "password_hash": "e233e385ca564ba548ea21de11f8c943:2ad2d9e38e9053294ad490fcf49eca00b07174d5c18583e51439d22f7834c7de79094a23a21b6121ee1e9a82843c6c4277e597b118470de870427aa21402b2dd",
       "peran": "mahasiswa",
       "status_akun": "aktif",
-      "waktu_daftar": "2026-11-25T22:16:18.510Z"
+      "waktu_daftar": "2026-11-26T03:35:22.393Z"
     },
     {
       "id_pengguna": 4,
       "nama": "Sanjaya, Liandy",
       "email_kampus": "S2410602@student.unklab.ac.id",
       "no_hp": "081234567893",
-      "password_hash": "b923111b9e730f3bf1557ec6163ac549:024085f5db46a4224645fca62aa1801447c2c2df2e8ff8aebc17e13b98c6df6c240558d5523a90d1ddd5e9db06877d4d9a91547df68bce8979c83cdd13f1c429",
+      "password_hash": "e233e385ca564ba548ea21de11f8c943:2ad2d9e38e9053294ad490fcf49eca00b07174d5c18583e51439d22f7834c7de79094a23a21b6121ee1e9a82843c6c4277e597b118470de870427aa21402b2dd",
       "peran": "kurir",
       "status_akun": "aktif",
-      "waktu_daftar": "2026-11-25T22:16:18.510Z"
+      "waktu_daftar": "2026-11-26T03:35:22.393Z"
     },
     {
       "id_pengguna": 5,
       "nama": "Mononuntu Frisky",
-      "email_kampus": "12410407@student.unklab.ac.id",
-      "no_hp": "08777337373",
-      "password_hash": "591afa1e5d6553366118cb4e7d436518:24f81d765955a7e044dc14839bd6b73e9d4603fad2fa3a7663ff4254dadb17648be3d1010f392eaccc6a638f5d73d16b5b1678326c0346f987206c8495693666",
+      "email_kampus": "12410509@student.unklab.ac.id",
+      "no_hp": "09898392773",
+      "password_hash": "aaa9b1ff5942382f5ddd99480f5bbcb9:cdd5e4a95c11f25475ea2fac390347f159e5b5acf9e62eabf21d01fdd501a6d1f81852dd8418cda65a4a52e28e80ecb6208754a4f6c298b9f426623811a97ec4",
       "peran": "mahasiswa",
       "status_akun": "aktif",
-      "waktu_daftar": "2026-11-25T22:40:03.297Z"
+      "waktu_daftar": "2026-11-26T03:42:28.540Z"
     },
     {
       "id_pengguna": 6,
-      "nama": "Abdillah Santoso",
-      "email_kampus": "12410507@student.unklab.ac.id",
-      "no_hp": "085774747171",
-      "password_hash": "3a54b4d43b1bb63d96cbd2b5d32d2b17:3b9e0c5600f62a06c89bb0095ed0f8aa06291870d22beb175de55b757f4492aa66bfda1a3838b0604ff961cab2d5a92747ae1026ed4371ec059e2236c5a1553a",
+      "nama": "Ririhena Jovan",
+      "email_kampus": "12310307@student.unklab.ac.id",
+      "no_hp": "08976463472",
+      "password_hash": "9098f6303aa936811ed17e9571abed7c:ad11c3cecf33e1c3142f995d40ec603904a9b388f953d51df0cc15cf3f3611fba6df2bc9a97b49bec5d46baa010b7079338643335d807d25784d647cdfd42d36",
       "peran": "kurir",
-      "status_akun": "aktif",
-      "waktu_daftar": "2026-11-25T22:45:19.903Z"
+      "status_akun": "belum_diverifikasi",
+      "waktu_daftar": "2026-11-26T03:44:07.327Z"
     }
   ],
   "kurir": [
@@ -87,8 +87,8 @@
       "id_pengguna": 4,
       "status_verifikasi": "disetujui",
       "status_ketersediaan": "tersedia",
-      "rating_rata": 5,
-      "waktu_pengajuan": "2026-11-25T22:16:18.510Z",
+      "rating_rata": 4.9,
+      "waktu_pengajuan": "2026-11-26T03:35:22.393Z",
       "setuju_kode_etik": true,
       "alasan_penolakan": null
     },
@@ -98,7 +98,7 @@
       "status_verifikasi": "disetujui",
       "status_ketersediaan": "tersedia",
       "rating_rata": null,
-      "waktu_pengajuan": "2026-11-25T22:45:19.904Z",
+      "waktu_pengajuan": "2026-11-26T03:44:07.328Z",
       "setuju_kode_etik": true,
       "alasan_penolakan": null
     }
@@ -156,40 +156,12 @@
     {
       "id_jadwal": 8,
       "id_kurir": 2,
-      "hari": "Sen",
-      "jam_mulai": "13:00",
-      "jam_selesai": "17:00"
-    },
-    {
-      "id_jadwal": 9,
-      "id_kurir": 2,
-      "hari": "Sel",
-      "jam_mulai": "13:00",
-      "jam_selesai": "17:00"
-    },
-    {
-      "id_jadwal": 10,
-      "id_kurir": 2,
-      "hari": "Rab",
-      "jam_mulai": "13:00",
-      "jam_selesai": "17:00"
-    },
-    {
-      "id_jadwal": 11,
-      "id_kurir": 2,
       "hari": "Kam",
       "jam_mulai": "13:00",
       "jam_selesai": "17:00"
     },
     {
-      "id_jadwal": 12,
-      "id_kurir": 2,
-      "hari": "Jum",
-      "jam_mulai": "13:00",
-      "jam_selesai": "17:00"
-    },
-    {
-      "id_jadwal": 13,
+      "id_jadwal": 9,
       "id_kurir": 2,
       "hari": "Min",
       "jam_mulai": "13:00",
@@ -266,7 +238,7 @@
       "nama_lokasi": "Pos 6 - Gedung Kuliah Pascasarjana",
       "jenis": "drop_point",
       "kapasitas_loker": 10,
-      "slot_tersedia": 7,
+      "slot_tersedia": 8,
       "keterangan": "Lantai 1 lobi Pascasarjana · Buka 07.30–19.00"
     },
     {
@@ -291,7 +263,7 @@
       "id_lokasi_tujuan": 3,
       "status": "Dalam Perjalanan",
       "estimasi_waktu": 15,
-      "waktu_dibuat": "2026-11-25T21:16:18.511Z"
+      "waktu_dibuat": "2026-11-26T02:35:22.394Z"
     },
     {
       "id_permintaan": 2,
@@ -305,7 +277,7 @@
       "id_lokasi_tujuan": 1,
       "status": "Disimpan",
       "estimasi_waktu": 0,
-      "waktu_dibuat": "2026-11-25T20:16:18.511Z"
+      "waktu_dibuat": "2026-11-26T01:35:22.394Z"
     },
     {
       "id_permintaan": 3,
@@ -319,77 +291,35 @@
       "id_lokasi_tujuan": 1,
       "status": "Terkirim",
       "estimasi_waktu": 10,
-      "waktu_dibuat": "2026-11-24T22:16:18.511Z"
+      "waktu_dibuat": "2026-11-25T03:35:22.394Z"
     },
     {
       "id_permintaan": 4,
       "kode_resi": "STB-0253",
       "id_pemesan": 2,
       "jenis": "titip",
-      "deskripsi_barang": "tas aja",
-      "nama_penerima": "Abdillah",
-      "foto_barang": "/uploads/upload_1795645159044_5562.png",
-      "id_lokasi_asal": 9,
-      "id_lokasi_tujuan": 9,
-      "status": "Disimpan",
+      "deskripsi_barang": "tas aja dan buku",
+      "nama_penerima": "andrew",
+      "foto_barang": "/uploads/upload_1795664330868_7856.png",
+      "id_lokasi_asal": 8,
+      "id_lokasi_tujuan": 8,
+      "status": "Terkirim",
       "estimasi_waktu": 0,
-      "waktu_dibuat": "2026-11-25T22:19:26.143Z"
+      "waktu_dibuat": "2026-11-26T03:38:52.734Z"
     },
     {
       "id_permintaan": 5,
       "kode_resi": "STB-0254",
-      "id_pemesan": 3,
-      "jenis": "titip",
-      "deskripsi_barang": "tas aja warna biru",
-      "nama_penerima": "Andrew",
-      "foto_barang": "/uploads/upload_1795645159044_5562.png",
-      "id_lokasi_asal": 1,
-      "id_lokasi_tujuan": 1,
-      "status": "Terkirim",
-      "estimasi_waktu": 0,
-      "waktu_dibuat": "2026-11-25T22:21:18.841Z"
-    },
-    {
-      "id_permintaan": 6,
-      "kode_resi": "STB-0255",
-      "id_pemesan": 3,
+      "id_pemesan": 2,
       "jenis": "antar",
-      "deskripsi_barang": "buku 4",
-      "nama_penerima": "Andrew",
-      "foto_barang": "/uploads/upload_1795645464879_5118.png",
-      "id_lokasi_asal": 5,
-      "id_lokasi_tujuan": 7,
-      "status": "Terkirim",
-      "estimasi_waktu": 15,
-      "waktu_dibuat": "2026-11-25T22:24:30.118Z"
-    },
-    {
-      "id_permintaan": 7,
-      "kode_resi": "STB-0256",
-      "id_pemesan": 3,
-      "jenis": "antar",
-      "deskripsi_barang": "buku 4 dan botol minum",
-      "nama_penerima": "Andrew",
-      "foto_barang": "/uploads/upload_1795645464879_5118.png",
+      "deskripsi_barang": "buku 7 pack",
+      "nama_penerima": "Dasha",
+      "foto_barang": "/uploads/upload_1795664441204_737.png",
       "id_lokasi_asal": 4,
-      "id_lokasi_tujuan": 7,
+      "id_lokasi_tujuan": 10,
       "status": "Terkirim",
       "estimasi_waktu": 15,
-      "waktu_dibuat": "2026-11-25T22:27:05.522Z"
-    },
-    {
-      "id_permintaan": 8,
-      "kode_resi": "STB-0257",
-      "id_pemesan": 5,
-      "jenis": "antar",
-      "deskripsi_barang": "tas",
-      "nama_penerima": "Frisky",
-      "foto_barang": "/uploads/upload_1795646453763_8065.png",
-      "id_lokasi_asal": 6,
-      "id_lokasi_tujuan": 3,
-      "status": "Terkirim",
-      "estimasi_waktu": 15,
-      "waktu_dibuat": "2026-11-25T22:41:32.226Z"
+      "waktu_dibuat": "2026-11-26T03:40:43.509Z"
     }
   ],
   "penugasan": [
@@ -398,35 +328,21 @@
       "id_permintaan": 1,
       "id_kurir": 1,
       "metode": "otomatis",
-      "waktu_ditugaskan": "2026-11-25T21:16:18.511Z"
+      "waktu_ditugaskan": "2026-11-26T02:35:22.394Z"
     },
     {
       "id_penugasan": 2,
       "id_permintaan": 3,
       "id_kurir": 1,
       "metode": "otomatis",
-      "waktu_ditugaskan": "2026-11-24T22:16:18.511Z"
+      "waktu_ditugaskan": "2026-11-25T03:35:22.394Z"
     },
     {
       "id_penugasan": 3,
-      "id_permintaan": 6,
+      "id_permintaan": 5,
       "id_kurir": 1,
       "metode": "otomatis",
-      "waktu_ditugaskan": "2026-11-25T22:24:30.118Z"
-    },
-    {
-      "id_penugasan": 4,
-      "id_permintaan": 7,
-      "id_kurir": 1,
-      "metode": "otomatis",
-      "waktu_ditugaskan": "2026-11-25T22:27:05.522Z"
-    },
-    {
-      "id_penugasan": 5,
-      "id_permintaan": 8,
-      "id_kurir": 1,
-      "metode": "otomatis",
-      "waktu_ditugaskan": "2026-11-25T22:41:32.226Z"
+      "waktu_ditugaskan": "2026-11-26T03:40:43.509Z"
     }
   ],
   "riwayat_status": [
@@ -434,161 +350,98 @@
       "id_riwayat": 1,
       "id_permintaan": 1,
       "status": "Menunggu",
-      "waktu": "2026-11-25T21:16:18.511Z",
+      "waktu": "2026-11-26T02:35:22.394Z",
       "id_pengubah": 2
     },
     {
       "id_riwayat": 2,
       "id_permintaan": 1,
       "status": "Dijemput",
-      "waktu": "2026-11-25T21:36:18.511Z",
+      "waktu": "2026-11-26T02:55:22.394Z",
       "id_pengubah": 4
     },
     {
       "id_riwayat": 3,
       "id_permintaan": 1,
       "status": "Dalam Perjalanan",
-      "waktu": "2026-11-25T21:56:18.511Z",
+      "waktu": "2026-11-26T03:15:22.394Z",
       "id_pengubah": 4
     },
     {
       "id_riwayat": 4,
       "id_permintaan": 2,
       "status": "Disimpan",
-      "waktu": "2026-11-25T20:16:18.511Z",
+      "waktu": "2026-11-26T01:35:22.394Z",
       "id_pengubah": 2
     },
     {
       "id_riwayat": 5,
       "id_permintaan": 3,
       "status": "Menunggu",
-      "waktu": "2026-11-24T22:16:18.511Z",
+      "waktu": "2026-11-25T03:35:22.394Z",
       "id_pengubah": 2
     },
     {
       "id_riwayat": 6,
       "id_permintaan": 3,
       "status": "Dijemput",
-      "waktu": "2026-11-25T00:02:58.511Z",
+      "waktu": "2026-11-25T05:22:02.394Z",
       "id_pengubah": 4
     },
     {
       "id_riwayat": 7,
       "id_permintaan": 3,
       "status": "Dalam Perjalanan",
-      "waktu": "2026-11-25T01:26:18.511Z",
+      "waktu": "2026-11-25T06:45:22.394Z",
       "id_pengubah": 4
     },
     {
       "id_riwayat": 8,
       "id_permintaan": 3,
       "status": "Terkirim",
-      "waktu": "2026-11-25T02:49:38.511Z",
+      "waktu": "2026-11-25T08:08:42.394Z",
       "id_pengubah": 4
     },
     {
       "id_riwayat": 9,
       "id_permintaan": 4,
       "status": "Disimpan",
-      "waktu": "2026-11-25T22:19:26.143Z",
+      "waktu": "2026-11-26T03:38:52.734Z",
       "id_pengubah": 2
     },
     {
       "id_riwayat": 10,
-      "id_permintaan": 5,
-      "status": "Disimpan",
-      "waktu": "2026-11-25T22:21:18.841Z",
-      "id_pengubah": 3
+      "id_permintaan": 4,
+      "status": "Terkirim",
+      "waktu": "2026-11-26T03:39:28.528Z",
+      "id_pengubah": 4
     },
     {
       "id_riwayat": 11,
       "id_permintaan": 5,
-      "status": "Terkirim",
-      "waktu": "2026-11-25T22:21:54.546Z",
-      "id_pengubah": 4
+      "status": "Menunggu",
+      "waktu": "2026-11-26T03:40:43.509Z",
+      "id_pengubah": 2
     },
     {
       "id_riwayat": 12,
-      "id_permintaan": 6,
-      "status": "Menunggu",
-      "waktu": "2026-11-25T22:24:30.118Z",
-      "id_pengubah": 3
+      "id_permintaan": 5,
+      "status": "Dijemput",
+      "waktu": "2026-11-26T03:40:58.341Z",
+      "id_pengubah": 4
     },
     {
       "id_riwayat": 13,
-      "id_permintaan": 6,
-      "status": "Dijemput",
-      "waktu": "2026-11-25T22:24:59.894Z",
+      "id_permintaan": 5,
+      "status": "Dalam Perjalanan",
+      "waktu": "2026-11-26T03:41:00.034Z",
       "id_pengubah": 4
     },
     {
       "id_riwayat": 14,
-      "id_permintaan": 6,
-      "status": "Dalam Perjalanan",
-      "waktu": "2026-11-25T22:25:00.789Z",
-      "id_pengubah": 4
-    },
-    {
-      "id_riwayat": 15,
-      "id_permintaan": 6,
+      "id_permintaan": 5,
       "status": "Terkirim",
-      "waktu": "2026-11-25T22:25:07.822Z",
-      "id_pengubah": 4
-    },
-    {
-      "id_riwayat": 16,
-      "id_permintaan": 7,
-      "status": "Menunggu",
-      "waktu": "2026-11-25T22:27:05.522Z",
-      "id_pengubah": 3
-    },
-    {
-      "id_riwayat": 17,
-      "id_permintaan": 7,
-      "status": "Dijemput",
-      "waktu": "2026-11-25T22:27:27.577Z",
-      "id_pengubah": 4
-    },
-    {
-      "id_riwayat": 18,
-      "id_permintaan": 7,
-      "status": "Dalam Perjalanan",
-      "waktu": "2026-11-25T22:27:28.754Z",
-      "id_pengubah": 4
-    },
-    {
-      "id_riwayat": 19,
-      "id_permintaan": 7,
-      "status": "Terkirim",
-      "waktu": "2026-11-25T22:27:32.162Z",
-      "id_pengubah": 4
-    },
-    {
-      "id_riwayat": 20,
-      "id_permintaan": 8,
-      "status": "Menunggu",
-      "waktu": "2026-11-25T22:41:32.226Z",
-      "id_pengubah": 5
-    },
-    {
-      "id_riwayat": 21,
-      "id_permintaan": 8,
-      "status": "Dijemput",
-      "waktu": "2026-11-25T22:41:40.639Z",
-      "id_pengubah": 4
-    },
-    {
-      "id_riwayat": 22,
-      "id_permintaan": 8,
-      "status": "Dalam Perjalanan",
-      "waktu": "2026-11-25T22:41:41.392Z",
-      "id_pengubah": 4
-    },
-    {
-      "id_riwayat": 23,
-      "id_permintaan": 8,
-      "status": "Terkirim",
-      "waktu": "2026-11-25T22:41:49.153Z",
+      "waktu": "2026-11-26T03:41:11.478Z",
       "id_pengubah": 4
     }
   ],
@@ -599,8 +452,8 @@
       "jenis": "penjemputan",
       "foto_bukti": "/uploads/sample_pickup.jpg",
       "kode_otp": "4829",
-      "jumlah_percobaan_otp": 2,
-      "waktu": "2026-11-25T21:36:18.511Z"
+      "jumlah_percobaan_otp": 0,
+      "waktu": "2026-11-26T02:55:22.394Z"
     },
     {
       "id_serah_terima": 2,
@@ -609,7 +462,7 @@
       "foto_bukti": "/uploads/sample_algoritma.jpg",
       "kode_otp": "5173",
       "jumlah_percobaan_otp": 0,
-      "waktu": "2026-11-25T20:16:18.511Z"
+      "waktu": "2026-11-26T01:35:22.394Z"
     },
     {
       "id_serah_terima": 3,
@@ -618,52 +471,25 @@
       "foto_bukti": "/uploads/sample_delivered.jpg",
       "kode_otp": "1904",
       "jumlah_percobaan_otp": 0,
-      "waktu": "2026-11-25T02:49:38.511Z"
+      "waktu": "2026-11-25T08:08:42.394Z"
     },
     {
       "id_serah_terima": 4,
       "id_permintaan": 4,
       "jenis": "penitipan",
-      "foto_bukti": "/uploads/upload_1795645159044_5562.png",
-      "kode_otp": "4846",
+      "foto_bukti": "/uploads/upload_1795664330868_7856.png",
+      "kode_otp": "7499",
       "jumlah_percobaan_otp": 0,
-      "waktu": "2026-11-25T22:19:26.143Z"
+      "waktu": "2026-11-26T03:39:28.528Z"
     },
     {
       "id_serah_terima": 5,
       "id_permintaan": 5,
-      "jenis": "penitipan",
-      "foto_bukti": "/uploads/upload_1795645159044_5562.png",
-      "kode_otp": "2833",
-      "jumlah_percobaan_otp": 1,
-      "waktu": "2026-11-25T22:21:54.546Z"
-    },
-    {
-      "id_serah_terima": 6,
-      "id_permintaan": 6,
       "jenis": "penjemputan",
-      "foto_bukti": "/uploads/sample_delivered.jpg",
-      "kode_otp": "7903",
+      "foto_bukti": "/uploads/upload_1795664469728_1168.png",
+      "kode_otp": "2480",
       "jumlah_percobaan_otp": 0,
-      "waktu": "2026-11-25T22:25:07.822Z"
-    },
-    {
-      "id_serah_terima": 7,
-      "id_permintaan": 7,
-      "jenis": "penjemputan",
-      "foto_bukti": "/uploads/sample_delivered.jpg",
-      "kode_otp": "7716",
-      "jumlah_percobaan_otp": 0,
-      "waktu": "2026-11-25T22:27:32.162Z"
-    },
-    {
-      "id_serah_terima": 8,
-      "id_permintaan": 8,
-      "jenis": "penjemputan",
-      "foto_bukti": "/uploads/sample_delivered.jpg",
-      "kode_otp": "1547",
-      "jumlah_percobaan_otp": 0,
-      "waktu": "2026-11-25T22:41:49.153Z"
+      "waktu": "2026-11-26T03:41:11.478Z"
     }
   ],
   "transaksi": [
@@ -674,7 +500,7 @@
       "honor_kurir": 4000,
       "metode_pembayaran": "Tunai saat serah-terima",
       "status_bayar": "belum",
-      "waktu": "2026-11-25T21:16:18.511Z"
+      "waktu": "2026-11-26T02:35:22.394Z"
     },
     {
       "id_transaksi": 2,
@@ -683,7 +509,7 @@
       "honor_kurir": 0,
       "metode_pembayaran": "Gratis Drop Point",
       "status_bayar": "lunas",
-      "waktu": "2026-11-25T20:16:18.511Z"
+      "waktu": "2026-11-26T01:35:22.394Z"
     },
     {
       "id_transaksi": 3,
@@ -692,7 +518,7 @@
       "honor_kurir": 4000,
       "metode_pembayaran": "Tunai",
       "status_bayar": "lunas",
-      "waktu": "2026-11-25T02:49:38.511Z"
+      "waktu": "2026-11-25T08:08:42.394Z"
     },
     {
       "id_transaksi": 4,
@@ -701,58 +527,19 @@
       "honor_kurir": 0,
       "metode_pembayaran": "Layanan Mandiri Drop Point",
       "status_bayar": "lunas",
-      "waktu": "2026-11-25T22:19:26.143Z"
+      "waktu": "2026-11-26T03:38:52.734Z"
     },
     {
       "id_transaksi": 5,
       "id_permintaan": 5,
-      "biaya_jasa": 0,
-      "honor_kurir": 0,
-      "metode_pembayaran": "Layanan Mandiri Drop Point",
-      "status_bayar": "lunas",
-      "waktu": "2026-11-25T22:21:18.841Z"
-    },
-    {
-      "id_transaksi": 6,
-      "id_permintaan": 6,
       "biaya_jasa": 5000,
       "honor_kurir": 4000,
       "metode_pembayaran": "Tunai saat serah-terima",
       "status_bayar": "lunas",
-      "waktu": "2026-11-25T22:24:30.118Z"
-    },
-    {
-      "id_transaksi": 7,
-      "id_permintaan": 7,
-      "biaya_jasa": 5000,
-      "honor_kurir": 4000,
-      "metode_pembayaran": "Tunai saat serah-terima",
-      "status_bayar": "lunas",
-      "waktu": "2026-11-25T22:27:05.522Z"
-    },
-    {
-      "id_transaksi": 8,
-      "id_permintaan": 8,
-      "biaya_jasa": 5000,
-      "honor_kurir": 4000,
-      "metode_pembayaran": "Tunai saat serah-terima",
-      "status_bayar": "lunas",
-      "waktu": "2026-11-25T22:41:32.226Z"
+      "waktu": "2026-11-26T03:40:43.509Z"
     }
   ],
-  "laporan_kehilangan": [
-    {
-      "id_laporan": 1,
-      "id_permintaan": 4,
-      "id_pelapor": 2,
-      "deskripsi": "tas aja",
-      "foto_bukti": "/uploads/upload_1795645754064_4101.png",
-      "status": "selesai",
-      "tindak_lanjut": "oke segera ditangani",
-      "id_admin": 1,
-      "waktu": "2026-11-25T22:29:15.909Z"
-    }
-  ],
+  "laporan_kehilangan": [],
   "ulasan": [
     {
       "id_ulasan": 1,
@@ -761,256 +548,88 @@
       "id_pemberi": 2,
       "rating": 5,
       "komentar": "Pengantaran sangat cepat dan barang aman!"
-    },
-    {
-      "id_ulasan": 2,
-      "id_permintaan": 7,
-      "id_kurir": 1,
-      "id_pemberi": 3,
-      "rating": 5,
-      "komentar": ""
-    },
-    {
-      "id_ulasan": 3,
-      "id_permintaan": 8,
-      "id_kurir": 1,
-      "id_pemberi": 5,
-      "rating": 5,
-      "komentar": "wah makasih Sanjaya, barang tetap aman dan cepat sampai"
     }
   ],
   "notifikasi": [
     {
-      "id_notifikasi": 32,
+      "id_notifikasi": 13,
       "id_pengguna": 6,
       "id_permintaan": null,
       "pesan": "Selamat! Pengajuan Anda sebagai Kurir Mahasiswa SiTAB telah disetujui oleh Administrator. Anda sekarang dapat menerima tugas pengantaran.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:46:23.665Z"
-    },
-    {
-      "id_notifikasi": 31,
-      "id_pengguna": 6,
-      "id_permintaan": null,
-      "pesan": "Selamat! Email kampus Anda berhasil diverifikasi. Akun SiTAB Anda kini telah aktif.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:45:50.506Z"
-    },
-    {
-      "id_notifikasi": 30,
-      "id_pengguna": 1,
-      "id_permintaan": null,
-      "pesan": "Pengajuan kurir baru dari Abdillah Santoso (12410507@student.unklab.ac.id).",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:45:19.905Z"
-    },
-    {
-      "id_notifikasi": 29,
-      "id_pengguna": 4,
-      "id_permintaan": 8,
-      "pesan": "Anda menerima rating bintang 5 untuk pesanan STB-0257.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:42:22.939Z"
-    },
-    {
-      "id_notifikasi": 28,
-      "id_pengguna": 5,
-      "id_permintaan": 8,
-      "pesan": "Verifikasi serah-terima berhasil! Pesanan STB-0257 kini berstatus Terkirim.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:41:49.154Z"
-    },
-    {
-      "id_notifikasi": 27,
-      "id_pengguna": 5,
-      "id_permintaan": 8,
-      "pesan": "Pesanan STB-0257 status diperbarui: Dalam Perjalanan.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:41:41.392Z"
-    },
-    {
-      "id_notifikasi": 26,
-      "id_pengguna": 5,
-      "id_permintaan": 8,
-      "pesan": "Pesanan STB-0257 status diperbarui: Dijemput.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:41:40.640Z"
-    },
-    {
-      "id_notifikasi": 25,
-      "id_pengguna": 5,
-      "id_permintaan": 8,
-      "pesan": "Pesanan STB-0257 berhasil dibuat dan otomatis ditugaskan kepada kurir Sanjaya, Liandy.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:41:32.227Z"
-    },
-    {
-      "id_notifikasi": 24,
-      "id_pengguna": 4,
-      "id_permintaan": 8,
-      "pesan": "Tugas pengantaran baru: STB-0257 (tas)",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:41:32.226Z"
-    },
-    {
-      "id_notifikasi": 23,
-      "id_pengguna": 5,
-      "id_permintaan": null,
-      "pesan": "Selamat! Email kampus Anda berhasil diverifikasi. Akun SiTAB Anda kini telah aktif.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:40:10.803Z"
-    },
-    {
-      "id_notifikasi": 22,
-      "id_pengguna": 2,
-      "id_permintaan": 4,
-      "pesan": "Pembaruan Laporan Kehilangan: Status laporan diubah menjadi 'selesai'. Catatan admin: oke segera ditangani",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:29:30.839Z"
-    },
-    {
-      "id_notifikasi": 21,
-      "id_pengguna": 2,
-      "id_permintaan": 4,
-      "pesan": "Laporan kehilangan untuk pesanan STB-0253 telah diterima oleh administrator untuk ditindaklanjuti.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:29:15.911Z"
-    },
-    {
-      "id_notifikasi": 20,
-      "id_pengguna": 1,
-      "id_permintaan": 4,
-      "pesan": "Laporan kehilangan baru diajukan oleh Michelle Lumentut untuk pesanan STB-0253.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:29:15.909Z"
-    },
-    {
-      "id_notifikasi": 19,
-      "id_pengguna": 4,
-      "id_permintaan": 7,
-      "pesan": "Anda menerima rating bintang 5 untuk pesanan STB-0256.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:27:54.675Z"
-    },
-    {
-      "id_notifikasi": 18,
-      "id_pengguna": 3,
-      "id_permintaan": 7,
-      "pesan": "Verifikasi serah-terima berhasil! Pesanan STB-0256 kini berstatus Terkirim.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:27:32.163Z"
-    },
-    {
-      "id_notifikasi": 17,
-      "id_pengguna": 3,
-      "id_permintaan": 7,
-      "pesan": "Pesanan STB-0256 status diperbarui: Dalam Perjalanan.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:27:28.755Z"
-    },
-    {
-      "id_notifikasi": 16,
-      "id_pengguna": 3,
-      "id_permintaan": 7,
-      "pesan": "Pesanan STB-0256 status diperbarui: Dijemput.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:27:27.579Z"
-    },
-    {
-      "id_notifikasi": 15,
-      "id_pengguna": 3,
-      "id_permintaan": 7,
-      "pesan": "Pesanan STB-0256 berhasil dibuat dan otomatis ditugaskan kepada kurir Sanjaya, Liandy.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:27:05.523Z"
-    },
-    {
-      "id_notifikasi": 14,
-      "id_pengguna": 4,
-      "id_permintaan": 7,
-      "pesan": "Tugas pengantaran baru: STB-0256 (buku 4 dan botol minum)",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:27:05.522Z"
-    },
-    {
-      "id_notifikasi": 13,
-      "id_pengguna": 3,
-      "id_permintaan": 6,
-      "pesan": "Verifikasi serah-terima berhasil! Pesanan STB-0255 kini berstatus Terkirim.",
-      "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:25:07.823Z"
+      "waktu": "2026-11-26T03:44:29.571Z"
     },
     {
       "id_notifikasi": 12,
-      "id_pengguna": 3,
-      "id_permintaan": 6,
-      "pesan": "Pesanan STB-0255 status diperbarui: Dalam Perjalanan.",
+      "id_pengguna": 1,
+      "id_permintaan": null,
+      "pesan": "Pengajuan kurir baru dari Ririhena Jovan (12310307@student.unklab.ac.id).",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:25:00.790Z"
+      "waktu": "2026-11-26T03:44:07.329Z"
     },
     {
       "id_notifikasi": 11,
-      "id_pengguna": 3,
-      "id_permintaan": 6,
-      "pesan": "Pesanan STB-0255 status diperbarui: Dijemput.",
+      "id_pengguna": 5,
+      "id_permintaan": null,
+      "pesan": "Selamat! Email kampus Anda berhasil diverifikasi. Akun SiTAB Anda kini telah aktif.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:24:59.895Z"
+      "waktu": "2026-11-26T03:42:36.948Z"
     },
     {
       "id_notifikasi": 10,
-      "id_pengguna": 3,
-      "id_permintaan": 6,
-      "pesan": "Pesanan STB-0255 berhasil dibuat dan otomatis ditugaskan kepada kurir Sanjaya, Liandy.",
+      "id_pengguna": 2,
+      "id_permintaan": 5,
+      "pesan": "Verifikasi serah-terima berhasil! Pesanan STB-0254 kini berstatus Terkirim.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:24:30.119Z"
+      "waktu": "2026-11-26T03:41:11.480Z"
     },
     {
       "id_notifikasi": 9,
-      "id_pengguna": 4,
-      "id_permintaan": 6,
-      "pesan": "Tugas pengantaran baru: STB-0255 (buku 4)",
+      "id_pengguna": 2,
+      "id_permintaan": 5,
+      "pesan": "Pesanan STB-0254 status diperbarui: Dalam Perjalanan.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:24:30.118Z"
+      "waktu": "2026-11-26T03:41:00.035Z"
     },
     {
       "id_notifikasi": 8,
-      "id_pengguna": 4,
-      "id_permintaan": null,
-      "pesan": "Status keaktifan kurir Anda telah diubah oleh administrator menjadi: AKTIF (Tersedia bekerja).",
+      "id_pengguna": 2,
+      "id_permintaan": 5,
+      "pesan": "Pesanan STB-0254 status diperbarui: Dijemput.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:23:19.466Z"
+      "waktu": "2026-11-26T03:40:58.342Z"
     },
     {
       "id_notifikasi": 7,
-      "id_pengguna": 4,
-      "id_permintaan": null,
-      "pesan": "Status keaktifan kurir Anda telah diubah oleh administrator menjadi: NONAKTIF.",
+      "id_pengguna": 2,
+      "id_permintaan": 5,
+      "pesan": "Pesanan STB-0254 berhasil dibuat dan otomatis ditugaskan kepada kurir Sanjaya, Liandy.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:23:18.324Z"
+      "waktu": "2026-11-26T03:40:43.510Z"
     },
     {
       "id_notifikasi": 6,
-      "id_pengguna": 3,
+      "id_pengguna": 4,
       "id_permintaan": 5,
-      "pesan": "Barang titipan STB-0254 di Pos 1 - Gedung GK1 telah selesai diambil dan diverifikasi kurir Sanjaya, Liandy. Slot loker kembali tersedia.",
+      "pesan": "Tugas pengantaran baru: STB-0254 (buku 7 pack)",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:21:54.547Z"
+      "waktu": "2026-11-26T03:40:43.509Z"
     },
     {
       "id_notifikasi": 5,
-      "id_pengguna": 3,
-      "id_permintaan": 5,
-      "pesan": "Penitipan STB-0254 berhasil. Barang tersimpan di Pos 1 - Gedung GK1. Kode OTP pengambilan: 2833",
+      "id_pengguna": 2,
+      "id_permintaan": 4,
+      "pesan": "Barang titipan STB-0253 di Pos 5 - Asrama Edelweiss telah selesai diambil dan diverifikasi kurir Sanjaya, Liandy. Slot loker kembali tersedia.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:21:18.842Z"
+      "waktu": "2026-11-26T03:39:28.529Z"
     },
     {
       "id_notifikasi": 4,
       "id_pengguna": 2,
       "id_permintaan": 4,
-      "pesan": "Penitipan STB-0253 berhasil. Barang tersimpan di Pos 6 - Gedung Kuliah Pascasarjana. Kode OTP pengambilan: 4846",
+      "pesan": "Penitipan STB-0253 berhasil. Barang tersimpan di Pos 5 - Asrama Edelweiss. Kode OTP pengambilan: 7499",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:19:26.144Z"
+      "waktu": "2026-11-26T03:38:52.735Z"
     },
     {
       "id_notifikasi": 1,
@@ -1018,7 +637,7 @@
       "id_permintaan": 1,
       "pesan": "Pesanan STB-0248 diambil kurir Sanjaya sedang menuju lokasi pengantaran",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T21:56:18.511Z"
+      "waktu": "2026-11-26T03:15:22.394Z"
     },
     {
       "id_notifikasi": 2,
@@ -1026,7 +645,7 @@
       "id_permintaan": 2,
       "pesan": "Penitipan STB-0252 berhasil. Barang tersimpan di loker Gedung GK1",
       "sudah_dibaca": true,
-      "waktu": "2026-11-25T20:16:18.511Z"
+      "waktu": "2026-11-26T01:35:22.394Z"
     },
     {
       "id_notifikasi": 3,
@@ -1034,36 +653,27 @@
       "id_permintaan": null,
       "pesan": "Sistem SiTAB Kampus UNKLAB siap beroperasi.",
       "sudah_dibaca": false,
-      "waktu": "2026-11-25T22:16:18.510Z"
+      "waktu": "2026-11-26T03:35:22.393Z"
     }
   ],
   "verifikasi_email": [
     {
       "id_verifikasi": 1,
       "id_pengguna": 5,
-      "kode_verifikasi": "e61e222176c839e91c329b68372d624f70ff10ca8fd7cf48f0418171ace7694c",
-      "waktu_dibuat": "2026-11-25T22:40:03.297Z",
-      "waktu_kedaluwarsa": "2026-11-25T22:55:03.298Z",
+      "kode_verifikasi": "899c7cb77c60156733d189f8ff4627348f35b172ba3767c0ac544376c3fe6a96",
+      "waktu_dibuat": "2026-11-26T03:42:28.540Z",
+      "waktu_kedaluwarsa": "2026-11-26T03:57:28.541Z",
       "jumlah_percobaan": 0,
       "status": "terpakai"
     },
     {
       "id_verifikasi": 2,
       "id_pengguna": 6,
-      "kode_verifikasi": "a2e6a69bcf1faa6c84c0342317cc46592fa0ec70e97330140ecf9c5c1d8b2091",
-      "waktu_dibuat": "2026-11-25T22:45:19.903Z",
-      "waktu_kedaluwarsa": "2026-11-25T23:00:19.903Z",
-      "jumlah_percobaan": 2,
-      "status": "kedaluwarsa"
-    },
-    {
-      "id_verifikasi": 3,
-      "id_pengguna": 6,
-      "kode_verifikasi": "24a7f96cfb237e53e6385eb074b3ea8524e3bc788352c819d0821d883568f4d6",
-      "waktu_dibuat": "2026-11-25T22:45:40.377Z",
-      "waktu_kedaluwarsa": "2026-11-25T23:00:40.377Z",
+      "kode_verifikasi": "d08b3b7eb9e8b5ec1ca882485ee3951fa879ed506a0efb0b69af5e6409ce5e4d",
+      "waktu_dibuat": "2026-11-26T03:44:07.327Z",
+      "waktu_kedaluwarsa": "2026-11-26T03:59:07.328Z",
       "jumlah_percobaan": 0,
-      "status": "terpakai"
+      "status": "menunggu"
     }
   ]
 }
